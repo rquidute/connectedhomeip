@@ -1,16 +1,3 @@
 [build-system]
-requires = ['setuptools>=45', 'wheel']
+requires = ['setuptools', 'wheel']
 build-backend = 'setuptools.build_meta'
-
-[project]
-name = "chipyaml"
-version = "0.0.1"
-authors = [{name = "Project CHIP Authors"}]
-description = "Matter chipyaml package with adapters for YAML test execution"
-license = {text = "Apache-2.0"}
-
-[tool.setuptools]
-packages = ["chipyaml", "chipyaml.adapters", "chipyaml.adapters.chiptool", "chipyaml.adapters.placeholder", "chipyaml.adapters.repl"]
-
-[tool.setuptools.package-dir]
-chipyaml = "."
