@@ -1,3 +1,15 @@
 [build-system]
 requires = ['setuptools', 'wheel']
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = "chipyaml"
+version = "0.0.1"
+authors = [{name = "Project CHIP Authors"}]
+description = "chipyaml adapters for matter_yamltests"
+
+[tool.setuptools.package-dir]
+chipyaml = "."
+
+[tool.setuptools.packages]
+find = {}
