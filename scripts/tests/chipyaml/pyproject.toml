@@ -6,7 +6,10 @@ build-backend = 'setuptools.build_meta'
 name = "chipyaml"
 version = "0.0.1"
 authors = [{name = "Project CHIP Authors"}]
-description = "Matter chipyaml package with adapters"
+description = "Matter chipyaml package with adapters for YAML test execution"
 
 [tool.setuptools.packages.find]
 where = ["."]
+
+[tool.setuptools.package-data]
+"*" = ["*.py", "*.yaml", "*.yml"]
