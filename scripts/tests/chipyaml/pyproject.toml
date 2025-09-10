@@ -7,9 +7,10 @@ name = "chipyaml"
 version = "0.0.1"
 authors = [{name = "Project CHIP Authors"}]
 description = "Matter chipyaml package with adapters for YAML test execution"
+license = {text = "Apache-2.0"}
 
-[tool.setuptools.packages.find]
-where = ["."]
+[tool.setuptools]
+packages = ["chipyaml", "chipyaml.adapters", "chipyaml.adapters.chiptool", "chipyaml.adapters.placeholder", "chipyaml.adapters.repl"]
 
-[tool.setuptools.package-data]
-"*" = ["*.py", "*.yaml", "*.yml"]
+[tool.setuptools.package-dir]
+chipyaml = "."
