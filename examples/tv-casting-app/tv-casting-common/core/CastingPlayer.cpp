@@ -35,10 +35,8 @@ void CastingPlayer::SendUDC(ConnectionCallbacks connectionCallbacks, Identificat
 
     CHIP_ERROR err = CHIP_NO_ERROR;
 
-    VerifyOrExit(
-        connectionCallbacks.mOnConnectionComplete != nullptr,
-        ChipLogError(AppServer,
-                     "CastingPlayer::VerifyOrEstablishConnection() ConnectionCallbacks.mOnConnectionComplete was not provided"));
+    VerifyOrExit(connectionCallbacks.mOnConnectionComplete != nullptr,
+                 ChipLogError(AppServer, "CastingPlayer::SendUDC() ConnectionCallbacks.mOnConnectionComplete was not provided"));
 
     mOnCompleted         = connectionCallbacks.mOnConnectionComplete;
     mTargetCastingPlayer = weak_from_this();
