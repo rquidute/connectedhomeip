@@ -1,6 +1,9 @@
 name: Build chip-build arm64 (fork)
 on:
   workflow_dispatch:
+  push:
+    branches: [ci/fast-cert-bins-v1.7]
+    paths: [.github/workflows/chip-build-arm64.yaml]
 
 jobs:
   build:
