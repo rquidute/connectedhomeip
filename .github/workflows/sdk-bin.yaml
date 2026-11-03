@@ -28,7 +28,7 @@ jobs:
         target: ${{ fromJSON(needs.load-targets-as-output.outputs.targets) }}
     runs-on: ubuntu-24.04-arm
     container:
-      image: ghcr.io/project-chip/chip-build:219
+      image: ghcr.io/rquidute/chip-build:217
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -99,7 +99,7 @@ jobs:
   build-python:
     runs-on: ubuntu-24.04-arm
     container:
-      image: ghcr.io/project-chip/chip-build:219
+      image: ghcr.io/rquidute/chip-build:217
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -192,6 +192,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     permissions:
         contents: read
+        packages: write
     steps:
       - name: Checkout just the files we need to copy to the image
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -235,10 +236,10 @@ jobs:
         env:
           COMMITHASH: ${{ github.sha }}
         with:
-            name: connectedhomeip/chip-cert-bins
+            name: rquidute/chip-cert-bins
             tags: ${{ github.sha }}
             dockerfile: ./integrations/docker/images/chip-cert-bins/Dockerfile-ci
-            username: ${{ secrets.CHIP_CERT_BINS_REGISTRY_USER }}
-            password: ${{ secrets.CHIP_CERT_BINS_REGISTRY_TOKEN }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
             buildargs: COMMITHASH
-            registry: docker.io
+            registry: ghcr.io
